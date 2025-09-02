@@ -1,0 +1,21 @@
+<!doctype html><html lang="th"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Lux Admin</title><link rel="stylesheet" href="./styles.css"/></head><body>
+<header><div class="container nav"><div class="brand"><img src="./assets/lux-logo.svg" alt="LUX"><strong>Lux Admin</strong></div><nav><a href="./index.html">หน้าแรก</a></nav></div></header>
+<main class="container" style="padding:24px 0 60px;"><div class="admin-layout"><aside class="sidebar"><div class="list">
+<button class="btn outline" data-panel="login">เข้าสู่ระบบ</button><button class="btn outline" data-panel="inbox">กล่องข้อความ</button><button class="btn outline" data-panel="products">สินค้า</button><button class="btn outline" data-panel="settings">ตั้งค่า</button><button class="btn outline" data-panel="advanced">Advanced</button>
+</div><div style="margin-top:12px;"><button id="btn-logout" class="btn" style="width:100%;">ออกจากระบบ</button></div></aside><section>
+<div id="panel-login" class="panel"><h3>เข้าสู่ระบบแอดมิน</h3><p>ตรวจรหัสผ่านที่ฝั่งเซิร์ฟเวอร์เท่านั้น</p><label>รหัสผ่าน</label><input type="password" id="admin-pass" placeholder="กรอกรหัสผ่านแอดมิน"/><button class="btn" id="btn-login">เข้าสู่ระบบ</button><div id="login-status" class="badge" style="margin-left:10px;">สถานะ: ไม่ได้ล็อกอิน</div></div>
+<div id="panel-inbox" class="panel" style="display:none;"><h3>กล่องข้อความลูกค้า</h3><div id="threads" class="list"></div><hr/><div id="thread-detail"></div></div>
+<div id="panel-products" class="panel" style="display:none;"><h3>สินค้า</h3><div id="prod-list" class="list"></div><hr/><h4>เพิ่ม/แก้ไข สินค้า</h4><form id="prod-form">
+<label>รหัสสินค้า (ID)</label><input type="text" id="p-id" required/><label>ชื่อสินค้า</label><input type="text" id="p-name" required/><label>ราคา</label><input type="number" id="p-price" min="0" step="1" required/>
+<label>รูปภาพ (URL)</label><input type="url" id="p-image" placeholder="./assets/hero.svg"/><label>รายละเอียด</label><textarea id="p-desc"></textarea>
+<div><button class="btn" type="submit">บันทึก</button><button class="btn outline" type="button" id="p-delete">ลบ</button></div></form></div>
+<div id="panel-settings" class="panel" style="display:none;"><h3>ตั้งค่าร้านค้า</h3><form id="settings-form">
+<label>ชื่อร้าน</label><input type="text" id="s-name" value="Lux Shirt"/><label>Slogan</label><input type="text" id="s-slogan" value="Premium Shirts for Everyday Confidence"/>
+<label>โลโก้ (URL)</label><input type="url" id="s-logo" value="./assets/lux-logo.svg"/><label>Hero Image (URL)</label><input type="url" id="s-hero" value="./assets/hero.svg"/>
+<label>IG</label><input type="text" id="s-ig"/><label>FB</label><input type="text" id="s-fb"/><label>LINE</label><input type="text" id="s-line"/>
+<label>Email</label><input type="text" id="s-email"/><label>ที่อยู่</label><input type="text" id="s-address"/><label>เบอร์โทร</label><input type="text" id="s-phone"/>
+<div><button class="btn" type="submit">บันทึก</button></div></form></div>
+<div id="panel-advanced" class="panel" style="display:none;"><h3>Advanced</h3><label><input type="checkbox" id="s-verify" checked/> ต้อง verify ชื่อก่อนแชท</label></div>
+</section></div></main>
+<script type="module" src="./utils.js"></script><script type="module" src="./api.js"></script><script type="module" src="./admin.js"></script></body></html>
